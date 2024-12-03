@@ -1,0 +1,36 @@
+name: Update Submodules
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight
+  workflow_dispatch:
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main-app repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true # Fetch submodules
+
+      - name: Update frontend submodule
+        run: |
+          cd next-frontend-datawow
+          git pull origin main
+          cd ..
+
+      - name: Update backend submodule
+        run: |
+          cd nest-backend-datawow
+          git pull origin main
+          cd ..
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "JamesAsuraA93"
+          git config user.email "AsuraA93@gmail.com"
+          git add .
+          git commit -m "Update submodules to latest versions" || echo "No changes to commit"
+          git push origin main
