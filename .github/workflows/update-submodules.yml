@@ -2,7 +2,8 @@ name: Update Submodules
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight
+    # - cron: "0 0 * * *" # Runs daily at midnight
+    - cron: "* * * * *" # Runs every minute
   workflow_dispatch:
 
 jobs:
