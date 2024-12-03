@@ -1,6 +1,8 @@
 [submodule "next-frontend-datawow"]
 	path = next-frontend-datawow
 	url = https://github.com/JamesAsuraA93/next-frontend-datawow.git
+	branch = main
 [submodule "nest-backend-datawow"]
 	path = nest-backend-datawow
 	url = https://github.com/JamesAsuraA93/nest-backend-datawow.git
+	branch = main
